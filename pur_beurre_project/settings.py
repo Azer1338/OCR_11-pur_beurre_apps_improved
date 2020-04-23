@@ -96,8 +96,8 @@ DATABASES = {
         # le nom de notre base de donnees creee precedemment
         'NAME': 'pur_beurre_db',
         # attention : remplacez par votre nom d'utilisateur
-        'USER': 'adrien',
-        'PASSWORD': 'adrien13',
+        'USER': 'azer',
+        'PASSWORD': 'azerazer',
         'HOST': '',
         'PORT': '5432',
     }
