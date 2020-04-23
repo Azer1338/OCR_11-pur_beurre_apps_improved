@@ -1,0 +1,98 @@
+{% extends 'main/base.html' %}
+
+{% load static %}
+
+{% block content %}
+
+<!-- Aliment Title Section -->
+<section class="page-section alimentPicture" id="search" style="background-image:url({{ aliment.picture_link }});">
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-lg-4 text-center">
+                <h2 class="color-background">
+                    {{ aliment.name }}
+                </h2>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Information Section -->
+<section class="page-section wrapper" id="about">
+    <div class="container">
+
+        <div class="row justify-content-center">
+            <!-- nutrition_score -->
+            <div class="col-lg-4 text-center">
+                <h3>
+                    Nutrition Score
+                </h3>
+
+                {% if aliment.nutrition_score == "a" %}
+                <p>
+                    <span class="alimentScoring"> A </span> b c d e
+                </p>
+                {% endif %}
+
+                {% if aliment.nutrition_score == "b" %}
+                <p>
+                    a <span class="alimentScoring">B</span> c d e
+                </p>
+                {% endif %}
+
+                {% if aliment.nutrition_score == "c" %}
+                <p>
+                    a b <span class="alimentScoring">C</span> d e
+                </p>
+                {% endif %}
+
+                {% if aliment.nutrition_score == "d" %}
+                <p>
+                    a b c <span class="alimentScoring">D</span> e
+                </p>
+                {% endif %}
+
+                {% if aliment.nutrition_score == "e" %}
+                <p>
+                    a b c d <span class="alimentScoring">E</span>
+                </p>
+                {% endif %}
+            </div>
+
+            <!-- Information -->
+            <div class="col-lg-8 text-center">
+                <h3>
+                    Repères nutritionnels pour 100gr
+                </h3>
+                <p id="reperesNutri">
+                    Energie: {{ aliment.energy }}kj <br>
+                    Gras: {{ aliment.fat }}g <br>
+                    Gras saturé: {{ aliment.fat_saturated }}g <br>
+                    Sucre: {{ aliment.sugar }}g <br>
+                    Sel: {{ aliment.salt }}g <br>
+                </p>
+            </div>
+
+            <!-- Open Food Facts link -->
+            <div class="col-lg-8 text-center spacer">
+                <a href="{{ aliment.url_link }}" class="offLink">Lien Open Food Facts</a>
+
+            </div>
+
+            <!-- SAVE -->
+            {% if user.is_authenticated %}
+            <div class="col-lg-8 text-center spacer">
+                <a href="/substitute/save/{{ substitute.id }}/" class="offLink">
+                    <i class="far fa-save"></i>SAVE
+                </a>
+            </div>
+            {% endif %}
+
+        </div>
+
+
+
+    </div>
+</section>
+	
+{% endblock %}

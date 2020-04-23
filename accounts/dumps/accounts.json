@@ -1,0 +1,1 @@
+[{"model": "accounts.purbeurreuser", "pk": 1, "fields": {"password": "pbkdf2_sha256$180000$To7kx86TI6ar$nMZwfWeHe0j4giTtmBDD+cjIomJaLvWYJSrv3o/HEk8=", "last_login": "2020-01-18T15:09:14.078Z", "email": "adrien13.f@gmail.com", "first_name": "Bob", "name": "Bob LEPONGE", "is_active": true, "is_admin": false}}]

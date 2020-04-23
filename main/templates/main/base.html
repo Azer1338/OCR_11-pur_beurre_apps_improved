@@ -1,0 +1,168 @@
+{% load static %}
+
+<html lang="en">
+
+<head>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <!-- Font Awesome Icons -->
+    <link rel="icon" type="image/png" href="{% static 'main/img/favicon.png'%}" />
+
+    <title>Pur Beurre - Du gras, oui, mais de qualité !</title>
+
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" type="text/css" href="{% static 'main/vendor/fontawesome-free/css/all.min.css'%}">
+
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Merriweather+Sans:400,700" rel="stylesheet">
+    <link href='https://fonts.googleapis.com/css?family=Merriweather:400,300,300italic,400italic,700,700italic' rel='stylesheet' type='text/css'>
+    <link href="http://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet" type="text/css">
+    <link href="http://fonts.googleapis.com/css?family=Scope+One" rel="stylesheet" type="text/css">
+
+    <!-- Plugin CSS -->
+    <link rel="stylesheet" type="text/css" href="{% static 'main/vendor/magnific-popup/magnific-popup.css'%}">
+
+    <!-- Theme CSS - Includes Bootstrap -->
+    <link rel="stylesheet" type="text/css" href="{% static 'main/css/creative.css'%}">
+
+    <!-- Icon CSS -->
+    <link rel="stylesheet" type="text/css" href="{% static 'main/css/icons.css'%}"/>
+
+    <!-- Custom CSS -->
+    <link  type="text/css" rel="stylesheet" href="{% static 'main/css/custom.css'%}">
+
+</head>
+
+<body id="page-top">
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-light fixed-top py-3" id="mainNav">
+        <div class="container">
+            <!-- Logo -->
+            <a href="/">
+                <img class="navbar-toggler-icon js-scroll-trigger" src="{% static 'main/img/logo_pur_beurre.png'%}" alt="Pur beurre logo">
+            </a>
+
+            <!-- Site Web Title -->
+            <a class="navbar-brand js-scroll-trigger" href="/">
+                Pur beurre
+            </a>
+
+            <!-- Toggle button on mobile -->
+            <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <!-- Message -->
+            {% if messages %}
+            <div class="messages">
+                {% for message in messages %}
+                <div class="alert alert-success" role="alert">
+                    {{ message }}
+                </div>
+                {% endfor %}
+            </div>
+            {% endif %}
+            
+            <!-- Nav Button -->
+            <div class="collapse navbar-collapse" id="navbarResponsive">
+                <!-- Search Button -->
+                <ul class="navbar-nav ml-auto my-2 my-lg-0">
+                    <!-- Search field -->
+                    <form action="{% url 'substitute:search' %}" method="get" accept-charset="utf-8">
+                        <input type="search" name="userSearch" placeholder="Chercher" class="userSearch" id="UserRequest">
+                    </form>
+
+                    {% if user.is_authenticated %}
+                    <!-- Account profil page -->
+                    <li class="nav-item">
+                        <a class="fa-stack" href="/accounts/myAccount" title="My account">
+                            <i class="fa fa-circle fa-stack-2x nav-item"></i>
+                            <i class="fas fa-user-alt fa-stack-1x fa-inverse"></i>
+                        </a>
+                    </li>
+
+                    <!-- Favorite page -->
+                    <li class="nav-item">
+                        <a class="fa-stack" href="/substitute/favorites" id="carrotButton" title="My favorites">
+                            <i class="fa fa-circle fa-stack-2x nav-item"></i>
+                            <i class="fa  fa-stack-1x">
+                                <img class="favoriteIcon  nav-item" src="{% static 'main/img/carrot_white.png'%}">
+                            </i>
+                        </a>
+                    </li>
+
+                    <!-- Log out button -->
+                    <li class="nav-item">
+                        <a class="fa-stack" href="/accounts/logout/" id="logoutButton" title="Log out">
+                            <i class="fa fa-circle fa-stack-2x nav-item"></i>
+                            <i class="fas fa-sign-out-alt fa-stack-1x fa-inverse"></i>
+                        </a>
+                    </li>
+
+                    {% else %}
+                    <!-- Log in button -->
+                    <li class="nav-item">
+                        <a class="fa-stack" href="/accounts/login" id="loginButton" title="Log in">
+                            <i class="fa fa-circle fa-stack-2x nav-item"></i>
+                            <i class="fas fa-sign-in-alt fa-stack-1x fa-inverse"></i>
+                        </a>
+                    </li>
+                    <!-- Sign in button -->
+                    <li class="nav-item">
+                        <a class="fa-stack" href="/accounts/signup" id="signUpButton" title="Sign up">
+                            <i class="fa fa-circle fa-stack-2x nav-item"></i>
+                            <i class="fas fa-portrait fa-stack-1x fa-inverse"></i>
+                        </a>
+                    </li>
+                    {% endif %}
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Block -->
+{% block content %}{% endblock %}
+
+    <!-- Footer -->
+    <footer class="bg-light py-3 footer">
+        <div class="container-fluid">
+            <div class="row text-footer">
+                <!-- Mentions -->
+                <a href="/mentions" class="col-5 small text-right text-muted">
+                    Mentions légales
+                </a>
+
+                <!-- Footer -->
+                <div class="col-2 small text-center text-muted">
+                    2019
+                </div>
+
+                <!-- Contact section -->
+                <a href="/#contact" class="col-5 small text-left text-muted">
+                    Contact
+                </a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Bootstrap core JavaScript -->
+    <script src="{% static 'main/vendor/jquery/jquery.min.js'%}"></script>
+    <script src="{% static 'main/vendor/bootstrap/js/bootstrap.bundle.min.js'%}"></script>
+
+    <!-- Plugin JavaScript -->
+    <script src="{% static 'main/vendor/jquery-easing/jquery.easing.min.js'%}"></script>
+    <script src="{% static 'main/vendor/magnific-popup/jquery.magnific-popup.min.js'%}"></script>
+
+    <!-- Custom scripts for this template -->
+    <script src="{% static 'main/js/creative.js'%}"></script>
+
+    <!-- Custom Javascript -->
+    <script type="text/javascript" src="{% static 'main/js/custom.js' %}"> </script>
+
+</body>
+
+</html>

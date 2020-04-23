@@ -1,0 +1,85 @@
+{% extends 'main/base.html' %}
+
+{% load static %}
+
+{% block content %}
+
+<!-- Search Section -->
+<section class="page-section bg-primary indexImage wrapper" id="search">
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-lg-8 text-center">
+                <h1>
+                    Du gras, oui, mais de la qualité!
+                </h1>
+                <br/>
+                <h2>
+                    Trouvez un produit de substitution pour ceux que vous consommez tous les jours.
+                </h2>
+
+                <!-- Search field -->
+                <form action="{% url 'substitute:search' %}" method="get" accept-charset="utf-8" class="form">
+                    <input class="form-control userSearch" type="search" name="userSearch" placeholder="Produit" id="UserRequest">
+                    <button class="btn btn-amber btn-outline-warning btn-rounded btn-sm ml-3">Chercher</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- About Section -->
+<section class="page-section bg-secondary wrapper" id="about">
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-lg-8 text-center">
+                <h2>Colette et Remy</h2>
+                <hr class="divider my-4">
+                <p>
+                    C'est une histoire d'amour autour des produits gras qui enrobe cette belle relation!
+                </p>
+
+                <div class="row justify-content-center">
+                    <div class="col-lg-4 text-center">
+                        <img class="character" src="{% static 'main/img/colette.png'%}" alt="Colette's picture">
+                        <h2>Colette</h2>
+                    </div>
+                    <div class="col-lg-4 text-center">
+                        <img class="character" src="{% static 'main/img/remy2.png'%}" alt="Remy's picture">
+                        <h2>Remy</h2>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Contact Section -->
+<section class="page-section wrapper" id="contact">
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-lg-8 text-center">
+                <h2 class="mt-0">Contactez-nous!</h2>
+                <hr class="divider my-4">
+                <p class="mb-5">
+                    Nous sommes à votre écoute 24/7 toute l'année, rien que pour vous.
+                </p>
+            </div>
+        </div>
+        
+        <div class="row">
+            <div class="col-lg-4 ml-auto text-center mb-5 mb-lg-0">
+                <i class="fas fa-phone fa-3x mb-3 icon"></i>
+                <div>+33 06 43 84 16 3X </div>
+            </div>
+        
+            <div class="col-lg-4 mr-auto text-center">
+                <i class="fas fa-envelope fa-3x mb-3 icon"></i>
+                <!-- Make sure to change the email address in anchor text AND the link below! -->
+                <a class="d-block" href="mailto:contact@yourwebsite.com">contact@purbeurre.com</a>
+            </div>
+        </div>
+    </div>
+</section>
+	
+{% endblock %}

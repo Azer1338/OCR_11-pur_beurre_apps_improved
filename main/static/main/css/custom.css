@@ -1,0 +1,162 @@
+/*:root{
+    *//* Colors *//*
+    --rooibos: #C45525;
+    --moules: #345A61;
+    --rigolo: #86EBE6;
+    --caramel: #DE9440;
+    --biscuit: #E8A75D;
+}*/
+
+/* FONT */
+html, body{
+    font-family: "Scope One", sans-serif;
+    color: white;
+    height: 100%;
+}
+
+footer{
+    height:50px;
+}
+
+.wrapper{
+    min-height: 100%;
+    margin-bottom: -50px;
+    padding-bottom: 50px;
+}
+
+h1, h2, h3, h4, h5, h6,
+.h1, .h2, .h3, .h4, .h5, .h6 {
+    font-family: "Open Sans", sans-serif;
+    color: white;
+}
+
+p{
+    color: white;
+    font-size: 1.2em;
+}
+
+/* PICTURE */
+img.favoriteIcon {
+    height: 35px;
+}
+
+/* HEADER */
+@media (min-width: 992px) {
+  #mainNav {
+    background-color: #C45525;
+  }
+  #mainNav .navbar-brand {
+    color: #DE9440;
+  }
+  #mainNav .navbar-brand:hover {
+    color: #E8A75D;
+  }
+}
+a .nav-item{
+    color: #DE9440;
+    }
+
+/* FOOTER */
+.footer{
+    background-color: #C45525!important;
+    }
+.text-muted{
+    color: #DE9440!important;
+    font-weight: bold;
+}
+
+
+/* INDEX PAGE */
+.indexImage{
+    background-color:orange;
+    background-image:url(../img/greg-jeanneau-YTbFHT9_IhY-unsplash2.jpg);
+    background-size: cover;
+    background-position:center center;
+    background-repeat:no-repeat;
+}
+#about{
+    background-color: #DE9440!important;
+}
+#contact{
+    background-color: #86EBE6!important;
+}
+.icon{
+    color: #345A61!important;
+}
+img.character{
+    height: 10em;
+}
+
+.btn-amber{
+    background-color: #DE9440;
+    color: white;
+    border-color: #DE9440;
+    font-size: 1.2em;
+}
+
+.form{
+    padding:2em;
+}
+
+/* SEARCH PAGE */
+.resultImage{
+
+}
+.alimentSearchedImage{
+    height: 7em;
+    max-width: 7em;
+}
+.nutritionScoreIcon{
+    background: #C45525;
+    width: 2em;
+    height: 2em;
+
+    border-radius: 100%;
+    display: inline-flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.alimentIcon{
+    margin :5px;
+}
+
+.SubstituteItem{
+    border: 5px solid #DE9440;
+    background-color: #345A61;
+    border-radius: 10%;
+}
+
+.alimentName{
+    min-height: 58px;
+}
+
+/* DETAILS PAGE */
+.alimentPicture{
+    background-repeat: round;
+    background-size: 10%;
+    opacity: 1;
+    filter: contrast(120%);
+}
+.offLink{
+    background-color:#345A61;
+    padding: 0.5em;
+    margin: 2em;
+}
+.alimentScoring{
+    font-size:2em;
+}
+.spacer{
+    margin: 1em;
+}
+
+/* ACCOUNTS PAGE */
+.myAccountPicture{
+    background-image:url(../img/greg-jeanneau-YTbFHT9_IhY-unsplash2.jpg);
+}
+
+/* SIGN UP PAGE */
+.site-form{
+    color: black;
+}

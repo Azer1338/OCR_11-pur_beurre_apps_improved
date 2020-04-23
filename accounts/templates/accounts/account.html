@@ -1,0 +1,35 @@
+{% extends 'main/base.html' %}
+
+{% load static %}
+
+{% block content %}
+
+<!-- Account Section -->
+<section class="page-section bg-primary myAccountPicture" >
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-lg-8 text-center">
+                <h2>
+                    AHOY
+                </h2>
+                <h3>
+                    {{ user.first_name }}, {{ user.name }}
+                </h3>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Information Section -->
+<section class="page-section wrapper" id="about">
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-lg-8 text-center">
+                <h4> Your email address :</h4>
+                <h5 style="font-weight:bold;">{{ user.email }}</h5>
+            </div>
+        </div>
+    </div>
+</section>
+
+{% endblock %}

@@ -1,0 +1,119 @@
+{% extends 'main/base.html' %}
+
+{% load static %}
+
+{% block content %}
+
+<!-- Aliment searched Section -->
+<section class="page-section bg-primary resultImage" id="search" style="background-image:url({{ substitute.picture_link }});">
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-lg-8 text-center">
+                <h2>
+                    Résultats pour la requete:
+                </h2>
+                <h2>
+                    {{user_request}}
+                </h2>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Carrousel Section -->
+<section class="page-section wrapper" id="about">
+    <div class="container">
+        <div class="row justify-content-center">
+            {% if substitutes|length_is:"0" %}
+            <!-- No results found message -->
+            <div class="col-lg-8 text-center">
+                <p>Palsambleu! Nous n'avons trouvé aucun résultat à cette requête. </p>
+                <p>Même pas de quoi se ronger la chique !</p>
+            </div>
+
+            {% else %}
+            <div class="col-lg-8 text-center">
+                <!-- Results found message -->
+                <h2>{{ message }}</h2>
+
+                <!-- Spacer -->
+                <hr class="divider my-4">
+
+                <!-- Carrousel -->
+                <div class="row justify-content-center">
+
+                    {% for substitute in substitutes %}
+                    <!-- Per aliment -->
+                    <div class="col-lg-4  SubstituteItem">
+                        <!-- NUTRISCORE -->
+                        <div class="row">
+                            <div class="col-lg-10">
+
+                            </div>
+                            <div class="col-lg-1 nutritionScoreIcon">
+                            {{ substitute.nutrition_score }}
+                            </div>
+                        </div>
+                        <!-- PICTURE -->
+                        <div class="row">
+                            <div class="col">
+                                <img class="alimentSearchedImage" src="{{ substitute.picture_link }}" alt="SubstitutePicture">
+                            </div>
+                        </div>
+                        <!-- TITLE -->
+                        <div class="row">
+                            <div class="col" style="height: 50px;">
+                                {{  substitute.name }}
+                            </div>
+                        </div>
+                        <!-- BUTTON -->
+                        <div class="row">
+                            <!-- INFO -->
+                            <div class="col">
+                                    <a href="/substitute/details/{{ substitute.code }}/">
+                                        INFO
+                                    </a>
+                            </div>
+                            <!-- SAVE -->
+                            {% if user.is_authenticated %}
+                            <div class="col">
+                                    <a href="/substitute/save/{{ substitute.id }}/">
+                                        <i class="far fa-save"></i>SAVE
+                                    </a>
+                            </div>
+                            {% endif %}
+                        </div>
+                    </div>
+                    {% endfor %}
+
+                </div>
+            </div>
+            {% endif %}
+        </div>
+
+        {% if paginate %}
+        <hr class="divider my-4">
+
+        <div class="row justify-content-center">
+            <div class="col-lg-4 text-center">
+                {% if substitutes.has_previous %}
+                <a href="?userSearch={{ user_request }}&page={{ substitutes.previous_page_number }}">
+                    Précédent
+                </a>
+                {% endif %}
+
+            </div>
+            <div class="col-lg-4 text-center">
+                {% if substitutes.has_next %}
+                <a href="?userSearch={{ user_request }}&page={{ substitutes.next_page_number }}">
+                    Suivant
+                </a>
+                {% endif %}
+            </div>
+        </div>
+        {% endif %}
+
+    </div>
+</section>
+	
+{% endblock %}
