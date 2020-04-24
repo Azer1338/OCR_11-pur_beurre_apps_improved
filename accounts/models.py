@@ -3,7 +3,7 @@ from django.contrib.auth.models import BaseUserManager, AbstractBaseUser
 
 
 class PurBeurreUserManager(BaseUserManager):
-    def create_user(self, email, first_name, name, password=None):
+    def create_user(self, email, first_name, name, city, password=None):
         """
         Creates and saves a User with the given email, first name, name and password.
         """
@@ -14,13 +14,14 @@ class PurBeurreUserManager(BaseUserManager):
             email=self.normalize_email(email),
             first_name=first_name,
             name=name,
+            city=city
         )
 
         user.set_password(password)
         user.save(using=self._db)
         return user
 
-    def create_superuser(self, email, first_name, name, password):
+    def create_superuser(self, email, first_name, name, city, password):
         """
         Creates and saves a superuser with the given email, first name,
          name and password.
@@ -29,6 +30,7 @@ class PurBeurreUserManager(BaseUserManager):
             email,
             first_name=first_name,
             name=name,
+            city=city,
             password=password,
         )
         user.is_admin = True
@@ -48,6 +50,7 @@ class PurBeurreUser(AbstractBaseUser):
     )
     first_name = models.CharField(max_length=50, unique=False)
     name = models.CharField(max_length=50, unique=False)
+    city = models.CharField(max_length=50, unique=False)
 
     is_active = models.BooleanField(default=True)
     is_admin = models.BooleanField(default=False)
@@ -56,7 +59,7 @@ class PurBeurreUser(AbstractBaseUser):
 
     USERNAME_FIELD = 'email'
 
-    REQUIRED_FIELDS = ['first_name', 'name']
+    REQUIRED_FIELDS = ['first_name', 'name', 'city']
 
     def get_full_name(self):
         # The user is identified by their email address
