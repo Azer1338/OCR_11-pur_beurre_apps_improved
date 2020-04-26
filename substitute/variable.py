@@ -11,7 +11,7 @@ CATEGORIES_OPEN_FOOD_FACTS = ["Sirop",
 NUTRITION_SCORE = ["a", "b", "c", "d", "e"]
 
 # List of grocery shop to load in database
-GROCERY_SHOP = ["Casino", "Carrefour", "Intermarché", "Monoprix", "Leclerc", "Super U", "Lidl", "Aldi"]
+GROCERY_SHOP = ["Franprix", "Carrefour", "Monoprix", "Leclerc"]
 
 # Limit of the menu option
 LIMIT_CONTENT_IN_LIST = 20

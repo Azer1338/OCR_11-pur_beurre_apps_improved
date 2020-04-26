@@ -31,7 +31,7 @@ class OpenFoodFactsAPIHandler:
         """
         Fetch aliments from specific :categories
         from the API through an HTTP instruction.
-        Specify the nutrition_score wished.
+        Specify the nutrition_score wished and the store.
         """
         # Empty list
         self.api_answer.clear()
