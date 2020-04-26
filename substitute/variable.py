@@ -1,10 +1,10 @@
 
 # Selection of categories from Open Food Fact
-CATEGORIES_OPEN_FOOD_FACTS = ["Soda",
-                              "Tarte",
-                              "Sirop",
-                              "Gouter",
-                              "Fruit",
+CATEGORIES_OPEN_FOOD_FACTS = ["Sirop",
+                              # "Tarte",
+                              # "Sirop",
+                              # "Gouter",
+                              # "Fruit",
                               ]
 
 # List of score to load in database

@@ -34,6 +34,7 @@ class DataBaseTableHandler:
                                                sugar=elt['sugars_value'],
                                                salt=elt['salt_value'],
                                                nutrition_score=elt['nutrition_grade_fr'],
+                                               store=elt['store'],
                                                url_link=elt['Open_food_facts_url'],
                                                picture_link=elt['image_thumb_url'],
                                                )

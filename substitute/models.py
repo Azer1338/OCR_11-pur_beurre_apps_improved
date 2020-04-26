@@ -12,6 +12,7 @@ class Aliment(models.Model):
     fat_saturated = models.FloatField(max_length=505, unique=False)
     sugar = models.FloatField(max_length=506, unique=False)
     salt = models.FloatField(max_length=507, unique=False)
+    store = models.CharField(max_length=508, unique=False)
     nutrition_score = models.CharField(max_length=508, unique=False)
     url_link = models.CharField(max_length=509, unique=False)
     picture_link = models.CharField(max_length=510, unique=False)

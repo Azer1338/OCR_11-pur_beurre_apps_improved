@@ -59,6 +59,10 @@ class OpenFoodFactsAPIHandler:
                 "tag_contains_3": "does_not_contain",
                 "tag_3": " ",
 
+                "tagtype_4": "stores",
+                "tag_contains_4": "does_not_contain",
+                "tag_4": " ",
+
                 "sort_by": "product_name",
                 "page_size": 1,
                 "json": 1
@@ -70,6 +74,10 @@ class OpenFoodFactsAPIHandler:
 
             # Add data in the larger json file
             self.api_answer.extend(data['products'])
+
+            print(self.api_answer)
+            for elt in self.api_answer:
+                print(elt)
 
     def check_data_integrity(self, category_name):
         """Load the data if the whole details are
@@ -92,6 +100,7 @@ class OpenFoodFactsAPIHandler:
                     columns_needed["sugars_value"] = prod["nutriments"]["sugars_value"]
                     columns_needed["salt_value"] = prod["nutriments"]["salt_value"]
                     columns_needed["nutrition_grade_fr"] = prod["nutrition_grade_fr"]
+                    columns_needed["store"] = prod["stores"]
                     columns_needed["Open_food_facts_url"] = prod["url"]
                     columns_needed["image_thumb_url"] = prod["image_thumb_url"]
 
