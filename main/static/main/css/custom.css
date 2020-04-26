@@ -160,3 +160,10 @@ img.character{
 .site-form{
     color: black;
 }
+
+/* GOOGLE MAP EMBEDDED */
+#googleMap{
+	height:15em;
+	min-width:15em;
+}
+
