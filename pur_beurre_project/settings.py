@@ -94,7 +94,7 @@ DATABASES = {
         # on utilise l'adaptateur postgresql
         'ENGINE': 'django.db.backends.postgresql',
         # le nom de notre base de donnees creee precedemment
-        'NAME': 'pur_beurre_db',
+        'NAME': 'pur_beurre_db_apps',
         # attention : remplacez par votre nom d'utilisateur
         'USER': 'azer',
         'PASSWORD': 'azerazer',

@@ -1,6 +1,6 @@
 import requests
 
-from substitute.variable import NUTRITION_SCORE, CATEGORIES_OPEN_FOOD_FACTS
+from substitute.variable import NUTRITION_SCORE, CATEGORIES_OPEN_FOOD_FACTS, GROCERY_SHOP
 
 
 class OpenFoodFactsAPIHandler:
@@ -38,46 +38,43 @@ class OpenFoodFactsAPIHandler:
 
         # Fetching data from API to list
         for grade in NUTRITION_SCORE:
-            # Generation of the request
-            url = "https://fr.openfoodfacts.org/cgi/search.pl"
-            criteria = {
-                "action": "process",
+            for store in GROCERY_SHOP:
+                # Generation of the request
+                url = "https://fr.openfoodfacts.org/cgi/search.pl"
+                criteria = {
+                    "action": "process",
 
-                "tagtype_0": "categories",
-                "tag_contains_0": "contains",
-                "tag_0": category,
+                    "tagtype_0": "categories",
+                    "tag_contains_0": "contains",
+                    "tag_0": category,
 
-                "tagtype_1": "countries",
-                "tag_contains_1": "contains",
-                "tag_1": "france",
+                    "tagtype_1": "countries",
+                    "tag_contains_1": "contains",
+                    "tag_1": "france",
 
-                "tagtype_2": "nutrition_grade_fr",
-                "tag_contains_2": "contains",
-                "tag_2": grade,
+                    "tagtype_2": "nutrition_grade_fr",
+                    "tag_contains_2": "contains",
+                    "tag_2": grade,
 
-                "tagtype_3": "product_name",
-                "tag_contains_3": "does_not_contain",
-                "tag_3": " ",
+                    "tagtype_3": "product_name",
+                    "tag_contains_3": "does_not_contain",
+                    "tag_3": " ",
 
-                "tagtype_4": "stores",
-                "tag_contains_4": "does_not_contain",
-                "tag_4": " ",
+                    "tagtype_4": "stores",
+                    "tag_contains_4": "contains",
+                    "tag_4": store,
 
-                "sort_by": "product_name",
-                "page_size": 1,
-                "json": 1
-                }
-            # Send a request to the API
-            req = requests.get(url, params=criteria)
-            # Fetching data in json file
-            data = req.json()
+                    "sort_by": "product_name",
+                    "page_size": 1,
+                    "json": 1
+                    }
+                # Send a request to the API
+                req = requests.get(url, params=criteria)
+                # Fetching data in json file
+                data = req.json()
 
-            # Add data in the larger json file
-            self.api_answer.extend(data['products'])
-
-            print(self.api_answer)
-            for elt in self.api_answer:
-                print(elt)
+                # Add data in the larger json file
+                self.api_answer.extend(data['products'])
 
     def check_data_integrity(self, category_name):
         """Load the data if the whole details are
