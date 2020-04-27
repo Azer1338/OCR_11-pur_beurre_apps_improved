@@ -19,8 +19,9 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="5bc1195c-ddc4-4f1c-9dfd-88ed19d1bf1e" name="Default Changelist" comment="installation of googlemaps lib and add the google_map_handler.py file">
+    <list default="true" id="5bc1195c-ddc4-4f1c-9dfd-88ed19d1bf1e" name="Default Changelist" comment="add some javascript in the custom.js file">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/main/static/main/css/custom.css" beforeDir="false" afterPath="$PROJECT_DIR$/main/static/main/css/custom.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/main/static/main/js/custom.js" beforeDir="false" afterPath="$PROJECT_DIR$/main/static/main/js/custom.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/substitute/templates/substitute/details.html" beforeDir="false" afterPath="$PROJECT_DIR$/substitute/templates/substitute/details.html" afterDir="false" />
     </list>
@@ -87,8 +88,18 @@
       <option name="project" value="LOCAL" />
       <updated>1587905120665</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="add some javascript in the custom.js file">
+      <created>1587916807953</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1587916807953</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
+  </component>
+  <component name="UnknownFeatures">
+    <option featureType="com.intellij.fileTypeFactory" implementationName="*.js" />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
     <option name="TAB_STATES">
@@ -108,7 +119,8 @@
     <MESSAGE value="start to review the handlers in roder to complete by the store name" />
     <MESSAGE value="start to review the handlers in order to complete by the store name" />
     <MESSAGE value="installation of googlemaps lib and add the google_map_handler.py file" />
-    <option name="LAST_COMMIT_MESSAGE" value="installation of googlemaps lib and add the google_map_handler.py file" />
+    <MESSAGE value="add some javascript in the custom.js file" />
+    <option name="LAST_COMMIT_MESSAGE" value="add some javascript in the custom.js file" />
   </component>
   <component name="WindowStateProjectService">
     <state x="532" y="98" width="912" height="909" key="CommitChangelistDialog2" timestamp="1587895284504">
