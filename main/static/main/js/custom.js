@@ -8,7 +8,7 @@ function initMap() {
     //Build up of the map
     var map = new google.maps.Map(
         document.getElementById('map'),{
-            zoom:5,
+            zoom:6,
             center:{
                 lat:46.00,
                 lng: 2.00
@@ -21,16 +21,18 @@ function initMap() {
 }
 
 function calculateAndDisplayRoute(directionService,directionDisplay){
+
     // Provide road map indications
     directionService.route({
-        origin :"Paris,France",
-        destination:"Marseille, France",
+        // Variables are picked up from the HTML page js script
+        origin : departureCity,
+        destination: arrivalCity,
         travelMode:'DRIVING'
     }, function(response, status){
         if (status ==='OK'){
             directionDisplay.setDirections(response);
         } else {
-        windows.alert("Directions requested failed due to " + status)
+        console.log("Directions requested failed due to " + status)
         }
     });
 }

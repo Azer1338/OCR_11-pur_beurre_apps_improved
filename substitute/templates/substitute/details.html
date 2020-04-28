@@ -81,9 +81,16 @@
                 <p id="reperesNutri">
                     {{ aliment.store }}<br>
                 </p>
+
                 <!-- Map -->
-                <button id="mapButton">Map Here</button>
+                <div >Address : {{ address }} </div>
                 <div id="map">Map Here!</div>
+                <!-- Variable -->
+                <script>
+                    var departureCity = '{{ user_city }}';
+                    var arrivalCity = "Toulouse, France";
+                </script>
+
             </div>
 
             <!-- Open Food Facts link -->
@@ -108,6 +115,9 @@
 
     <!-- Google Maps API -->
     <script async defer  src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCAC55FlIN8RRxdEkNvVSmzMQslpvyYXnM&callback=initMap"></script>
+
+    <!-- Custom Javascript -->
+    <script type="text/javascript" src="{% static 'main/js/custom.js' %}"> </script>
 
 </section>
 	
