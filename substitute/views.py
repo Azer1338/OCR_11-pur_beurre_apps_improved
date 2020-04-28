@@ -83,7 +83,6 @@ def detail_view(request, aliment_code):
 
     # Get user'information
     current_user = request.user
-    print(current_user)
 
     # Gather a context before sending to the HTML page
     context = {

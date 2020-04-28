@@ -19,11 +19,9 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="5bc1195c-ddc4-4f1c-9dfd-88ed19d1bf1e" name="Default Changelist" comment="Add the map with Paris to Marseille directions">
+    <list default="true" id="5bc1195c-ddc4-4f1c-9dfd-88ed19d1bf1e" name="Default Changelist" comment="the user's homtown is correctly pick up from the database.">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/main/static/main/css/custom.css" beforeDir="false" afterPath="$PROJECT_DIR$/main/static/main/css/custom.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/main/static/main/js/custom.js" beforeDir="false" afterPath="$PROJECT_DIR$/main/static/main/js/custom.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/main/templates/main/base.html" beforeDir="false" afterPath="$PROJECT_DIR$/main/templates/main/base.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/substitute/templates/substitute/details.html" beforeDir="false" afterPath="$PROJECT_DIR$/substitute/templates/substitute/details.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/substitute/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/substitute/views.py" afterDir="false" />
     </list>
@@ -111,7 +109,14 @@
       <option name="project" value="LOCAL" />
       <updated>1587987193560</updated>
     </task>
-    <option name="localTasksCounter" value="9" />
+    <task id="LOCAL-00009" summary="the user's homtown is correctly pick up from the database.">
+      <created>1588063311539</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1588063311539</updated>
+    </task>
+    <option name="localTasksCounter" value="10" />
     <servers />
   </component>
   <component name="UnknownFeatures">
@@ -137,7 +142,8 @@
     <MESSAGE value="installation of googlemaps lib and add the google_map_handler.py file" />
     <MESSAGE value="add some javascript in the custom.js file" />
     <MESSAGE value="Add the map with Paris to Marseille directions" />
-    <option name="LAST_COMMIT_MESSAGE" value="Add the map with Paris to Marseille directions" />
+    <MESSAGE value="the user's homtown is correctly pick up from the database." />
+    <option name="LAST_COMMIT_MESSAGE" value="the user's homtown is correctly pick up from the database." />
   </component>
   <component name="WindowStateProjectService">
     <state x="532" y="98" width="912" height="909" key="CommitChangelistDialog2" timestamp="1587895284504">
