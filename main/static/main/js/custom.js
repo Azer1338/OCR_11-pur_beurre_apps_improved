@@ -27,7 +27,8 @@ function calculateAndDisplayRoute(directionService,directionDisplay){
         // Variables are picked up from the HTML page js script
         origin : departureCity + ", France",
         destination: groceryBrandName + departureCity + ", France",
-        travelMode:'DRIVING'
+        travelMode:'DRIVING',
+        unitSystem: google.maps.UnitSystem.METRIC,
     }, function(response, status){
         if (status ==='OK'){
             directionDisplay.setDirections(response);
