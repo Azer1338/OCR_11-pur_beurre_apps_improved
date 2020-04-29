@@ -82,13 +82,16 @@ def detail_view(request, aliment_code):
     aliment = Aliment.objects.get(code=aliment_code)
 
     # Get user'information
-    current_user = request.user
+    if request.user.is_authenticated:
+        current_user = request.user
 
-    # Gather a context before sending to the HTML page
+    # Create a dictionary to feed the HTML page
     context = {
         'aliment': aliment,
-        'user_city': current_user.city,
     }
+    # Add user'information to the feed
+    if request.user.is_authenticated:
+        context.update({'user_city': current_user.city})
 
     return render(request, 'substitute/details.html', context)
 
