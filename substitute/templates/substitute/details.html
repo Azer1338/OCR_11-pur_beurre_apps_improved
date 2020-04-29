@@ -83,6 +83,7 @@
                 </p>
 
                 <!-- Map -->
+                {% if user.is_authenticated %}
                 <div >Address : {{ address }} </div>
                 <div id="map">Map Here!</div>
                 <!-- Variable -->
@@ -92,6 +93,7 @@
                     var groceryBrandName = '{{ aliment.store }}';
                     console.log(groceryBrandName);
                 </script>
+                {% endif %}
 
             </div>
 
@@ -115,11 +117,13 @@
 
     </div>
 
+    {% if user.is_authenticated %}
     <!-- Google Maps API -->
     <script async defer  src="https://maps.googleapis.com/maps/api/js?key=GM_KEY&callback=initMap"></script>
 
     <!-- Custom Javascript -->
     <script type="text/javascript" src="{% static 'main/js/custom.js' %}"> </script>
+    {% endif %}
 
 </section>
 	

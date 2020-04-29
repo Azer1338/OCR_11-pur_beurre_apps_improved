@@ -21,8 +21,6 @@
   <component name="ChangeListManager">
     <list default="true" id="5bc1195c-ddc4-4f1c-9dfd-88ed19d1bf1e" name="Default Changelist" comment="google map function OK. Route is working fine. Awaiting the test">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pur_beurre_project/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/pur_beurre_project/settings.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/substitute/dumps/substitute.json" beforeDir="false" afterPath="$PROJECT_DIR$/substitute/dumps/substitute.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/substitute/templates/substitute/details.html" beforeDir="false" afterPath="$PROJECT_DIR$/substitute/templates/substitute/details.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
