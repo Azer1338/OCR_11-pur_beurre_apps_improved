@@ -19,7 +19,7 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="5bc1195c-ddc4-4f1c-9dfd-88ed19d1bf1e" name="Default Changelist" comment="fix the user authentificate situation for the map">
+    <list default="true" id="5bc1195c-ddc4-4f1c-9dfd-88ed19d1bf1e" name="Default Changelist" comment="some css improvement">
       <change afterPath="$PROJECT_DIR$/main/static/main/img/Cookies_background.png" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/main/static/main/css/custom.css" beforeDir="false" afterPath="$PROJECT_DIR$/main/static/main/css/custom.css" afterDir="false" />
@@ -160,7 +160,14 @@
       <option name="project" value="LOCAL" />
       <updated>1588182211363</updated>
     </task>
-    <option name="localTasksCounter" value="16" />
+    <task id="LOCAL-00016" summary="some css improvement">
+      <created>1588266088462</created>
+      <option name="number" value="00016" />
+      <option name="presentableId" value="LOCAL-00016" />
+      <option name="project" value="LOCAL" />
+      <updated>1588266088463</updated>
+    </task>
+    <option name="localTasksCounter" value="17" />
     <servers />
   </component>
   <component name="UnknownFeatures">
@@ -192,17 +199,18 @@
     <MESSAGE value="The google map will displayed only if the user is connected." />
     <MESSAGE value="DEBUG=TRUE" />
     <MESSAGE value="fix the user authentificate situation for the map" />
-    <option name="LAST_COMMIT_MESSAGE" value="fix the user authentificate situation for the map" />
+    <MESSAGE value="some css improvement" />
+    <option name="LAST_COMMIT_MESSAGE" value="some css improvement" />
   </component>
   <component name="WindowStateProjectService">
     <state x="532" y="98" width="912" height="909" key="CommitChangelistDialog2" timestamp="1587895284504">
       <screen x="67" y="27" width="1853" height="1053" />
     </state>
     <state x="532" y="98" width="912" height="909" key="CommitChangelistDialog2/67.27.1853.1053/1920.0.1280.1024@67.27.1853.1053" timestamp="1587895284504" />
-    <state x="588" y="288" width="800" height="528" key="Vcs.Push.Dialog.v2" timestamp="1588182217388">
+    <state x="588" y="288" width="800" height="528" key="Vcs.Push.Dialog.v2" timestamp="1588266090392">
       <screen x="67" y="27" width="1853" height="1053" />
     </state>
-    <state x="588" y="288" width="800" height="528" key="Vcs.Push.Dialog.v2/67.27.1853.1053/1920.0.1280.1024@67.27.1853.1053" timestamp="1588182217388" />
+    <state x="588" y="288" width="800" height="528" key="Vcs.Push.Dialog.v2/67.27.1853.1053/1920.0.1280.1024@67.27.1853.1053" timestamp="1588266090392" />
     <state x="746" y="217" width="484" height="670" key="com.intellij.openapi.editor.actions.MultiplePasteAction$ClipboardContentChooser" timestamp="1588258648693">
       <screen x="67" y="27" width="1853" height="1053" />
     </state>
