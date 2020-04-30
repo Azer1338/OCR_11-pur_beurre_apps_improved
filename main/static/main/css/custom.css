@@ -35,6 +35,11 @@ p{
     font-size: 1.2em;
 }
 
+/* DESIGN */
+.page-section {
+  padding: 8rem 0 4rem 0;
+}
+
 /* PICTURE */
 img.favoriteIcon {
     height: 35px;
@@ -69,9 +74,10 @@ a .nav-item{
 /* INDEX PAGE */
 .indexImage{
     background-color:orange;
-    background-image:url(../img/greg-jeanneau-YTbFHT9_IhY-unsplash2.jpg);
+    background-image:url(../img/Cookies_background.png);
     background-size: cover;
     background-position:center center;
+    background-attachment: fixed;
     background-repeat:no-repeat;
 }
 #about{
@@ -133,12 +139,22 @@ img.character{
 }
 
 /* DETAILS PAGE */
-.alimentPicture{
-    background-repeat: round;
-    background-size: 10%;
-    opacity: 1;
-    filter: contrast(120%);
+#alimentName{
+    color: #DE9440!important;
 }
+
+.polaroid {
+  width: 80%;
+  background-color: white;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  margin-bottom: 25px;
+}
+
+.container {
+  text-align: center;
+  padding: 10px 20px;
+}
+
 .offLink{
     background-color:#345A61;
     padding: 0.5em;

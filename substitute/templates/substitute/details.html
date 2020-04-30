@@ -5,13 +5,16 @@
 {% block content %}
 
 <!-- Aliment Title Section -->
-<section class="page-section alimentPicture" id="search" style="background-image:url({{ aliment.picture_link }});">
+<section class="page-section " id="search" >
     <div class="container">
         <div class="row justify-content-center">
             <div class="col-lg-4 text-center">
-                <h2 class="color-background">
-                    {{ aliment.name }}
-                </h2>
+                <div class="polaroid">
+                    <img src="{{ aliment.picture_link }}" alt="5 Terre" style="width:100%; max-height:150px;">
+                    <div class="container">
+                        <p id="alimentName">{{ aliment.name }}</p>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
