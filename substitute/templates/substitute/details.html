@@ -79,7 +79,7 @@
             <!-- Store -->
             <div class="col-lg-8 text-center">
                 <h3>
-                    Store
+                    Vous pouvez retrouver ce produit dans ce magasin:
                 </h3>
                 <p id="reperesNutri">
                     {{ aliment.store }}<br>
@@ -87,7 +87,6 @@
 
                 <!-- Map -->
                 {% if user.is_authenticated %}
-                <div >Address : {{ address }} </div>
                 <div id="map">Map Here!</div>
                 <!-- Variable -->
                 <script>
@@ -108,7 +107,7 @@
             <!-- SAVE -->
             {% if user.is_authenticated %}
             <div class="col-lg-8 text-center spacer">
-                <a href="/substitute/save/{{ substitute.id }}/" class="offLink">
+                <a href="/substitute/save/{{ aliment.id }}" class="offLink">
                     <i class="far fa-save"></i>SAVE
                 </a>
             </div>

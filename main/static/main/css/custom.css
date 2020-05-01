@@ -19,7 +19,7 @@ footer{
 }
 
 .wrapper{
-    min-height: 100%;
+    min-height: 50%;
     margin-bottom: -50px;
     padding-bottom: 50px;
 }
@@ -37,7 +37,7 @@ p{
 
 /* DESIGN */
 .page-section {
-  padding: 8rem 0 4rem 0;
+  padding: 8rem 0 2rem 0;
 }
 
 /* PICTURE */
