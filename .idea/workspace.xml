@@ -19,11 +19,12 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="5bc1195c-ddc4-4f1c-9dfd-88ed19d1bf1e" name="Default Changelist" comment="background img fix">
-      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+    <list default="true" id="5bc1195c-ddc4-4f1c-9dfd-88ed19d1bf1e" name="Default Changelist" comment="fix the save button function">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/main/static/main/css/custom.css" beforeDir="false" afterPath="$PROJECT_DIR$/main/static/main/css/custom.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/substitute/templates/substitute/details.html" beforeDir="false" afterPath="$PROJECT_DIR$/substitute/templates/substitute/details.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/accounts/tests.py" beforeDir="false" afterPath="$PROJECT_DIR$/accounts/tests.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/requirements.txt" beforeDir="false" afterPath="$PROJECT_DIR$/requirements.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/substitute/tests.py" beforeDir="false" afterPath="$PROJECT_DIR$/substitute/tests.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/substitute/variable.py" beforeDir="false" afterPath="$PROJECT_DIR$/substitute/variable.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -179,7 +180,14 @@
       <option name="project" value="LOCAL" />
       <updated>1588266634260</updated>
     </task>
-    <option name="localTasksCounter" value="19" />
+    <task id="LOCAL-00019" summary="fix the save button function">
+      <created>1588319122051</created>
+      <option name="number" value="00019" />
+      <option name="presentableId" value="LOCAL-00019" />
+      <option name="project" value="LOCAL" />
+      <updated>1588319122051</updated>
+    </task>
+    <option name="localTasksCounter" value="20" />
     <servers />
   </component>
   <component name="UnknownFeatures">
@@ -214,17 +222,18 @@
     <MESSAGE value="some css improvement" />
     <MESSAGE value="remove idea folder" />
     <MESSAGE value="background img fix" />
-    <option name="LAST_COMMIT_MESSAGE" value="background img fix" />
+    <MESSAGE value="fix the save button function" />
+    <option name="LAST_COMMIT_MESSAGE" value="fix the save button function" />
   </component>
   <component name="WindowStateProjectService">
     <state x="532" y="98" width="912" height="909" key="CommitChangelistDialog2" timestamp="1587895284504">
       <screen x="67" y="27" width="1853" height="1053" />
     </state>
     <state x="532" y="98" width="912" height="909" key="CommitChangelistDialog2/67.27.1853.1053/1920.0.1280.1024@67.27.1853.1053" timestamp="1587895284504" />
-    <state x="588" y="288" width="800" height="528" key="Vcs.Push.Dialog.v2" timestamp="1588266636841">
+    <state x="588" y="288" width="800" height="528" key="Vcs.Push.Dialog.v2" timestamp="1588319123793">
       <screen x="67" y="27" width="1853" height="1053" />
     </state>
-    <state x="588" y="288" width="800" height="528" key="Vcs.Push.Dialog.v2/67.27.1853.1053/1920.0.1280.1024@67.27.1853.1053" timestamp="1588266636841" />
+    <state x="588" y="288" width="800" height="528" key="Vcs.Push.Dialog.v2/67.27.1853.1053/1920.0.1280.1024@67.27.1853.1053" timestamp="1588319123793" />
     <state x="746" y="217" width="484" height="670" key="com.intellij.openapi.editor.actions.MultiplePasteAction$ClipboardContentChooser" timestamp="1588266582522">
       <screen x="67" y="27" width="1853" height="1053" />
     </state>

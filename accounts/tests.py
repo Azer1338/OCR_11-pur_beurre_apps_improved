@@ -16,7 +16,8 @@ class AccountPageTestCase(TestCase):
         test_user = PurBeurreUser.objects.create_user(email="Franco13@.com",
                                                       first_name="claude",
                                                       name="francois",
-                                                      password="Chanson"
+                                                      password="Chanson",
+                                                      city="Lyon"
                                                       )
         test_user.save()
 
@@ -86,7 +87,8 @@ class LogoutPageTestCase(TestCase):
         test_user = PurBeurreUser.objects.create_user(email="Franco13@.com",
                                                       first_name="claude",
                                                       name="francois",
-                                                      password="Chanson"
+                                                      password="Chanson",
+                                                      city="Vienne"
                                                       )
         test_user.save()
 
@@ -113,11 +115,15 @@ class LogoutPageTestCase(TestCase):
 class MyUserTest(TestCase):
 
     # Models
-    def test_create_myUser(self, email="bobo@genoise.mousse", first_name="bob", name="o"):
-        return PurBeurreUser.objects.create_user(email=email, first_name=first_name, name=name, password=None)
+    def test_create_myUser(self, email="bobo@genoise.mousse", first_name="bob", name="o", city="Vienne"):
+        return PurBeurreUser.objects.create_user(email=email,
+                                                 first_name=first_name,
+                                                 name=name,
+                                                 password=None,
+                                                 city=city)
 
     def test_myUser_creation(self):
-        u = self.create_myUser()
+        u = self.test_create_myUser()
         self.assertTrue(isinstance(u, PurBeurreUser))
 
 

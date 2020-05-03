@@ -158,7 +158,8 @@ class FavoritePageTestCase(TestCase):
         test_user_1 = PurBeurreUser.objects.create_user(email="Franco13@.com",
                                                         first_name="claude",
                                                         name="francois",
-                                                        password="Chanson"
+                                                        password="Chanson",
+                                                        city='Brignoles'
                                                         )
         test_user_1.save()
         # User is authenticated
@@ -221,7 +222,8 @@ class SavePageTestCase(TestCase):
         test_user_1 = PurBeurreUser.objects.create_user(email="Franco13@.com",
                                                         first_name="claude",
                                                         name="francois",
-                                                        password="Chanson"
+                                                        password="Chanson",
+                                                        city='Toulouse'
                                                         )
         test_user_1.save()
         # User is authenticated
@@ -260,7 +262,8 @@ class DeletePageTestCase(TestCase):
         test_user_1 = PurBeurreUser.objects.create_user(email="Franco13@.com",
                                                         first_name="claude",
                                                         name="francois",
-                                                        password="Chanson"
+                                                        password="Chanson",
+                                                        city="Grenoble"
                                                         )
         test_user_1.save()
         # User is authenticated
@@ -347,25 +350,42 @@ class OpenFoodFactsAPIHandlerTest(TestCase):
                                               'sugars_value': '03',
                                               'salt_value': '03'},
                                'nutrition_grade_fr': 'test nut',
+                               'stores': 'Carrefour',
                                'url': 'google.com',
                                'image_thumb_url': 'google.com/test',
-                               }]
+                               }
+                              ]
 
         # Keep going on process
         handler.generate_substitutes_dict()
 
         self.assertEqual(handler.substitutes_list, [{'code': '01',
                                                      'product_name': 'test name',
-                                                     'categories': 'Soda',
+                                                     'categories': 'Sirop',
                                                      'energy_value': '03',
                                                      'fat_value': '03',
                                                      'saturated-fat_value': '03',
                                                      'sugars_value': '03',
                                                      'salt_value': '03',
                                                      'nutrition_grade_fr': 'test nut',
+                                                     'store': 'Carrefour',
                                                      'Open_food_facts_url': 'google.com',
                                                      'image_thumb_url': 'google.com/test',
-                                                     }])
+                                                     },
+                                                    {'code': '01',
+                                                     'product_name': 'test name',
+                                                     'categories': 'Tarte',
+                                                     'energy_value': '03',
+                                                     'fat_value': '03',
+                                                     'saturated-fat_value': '03',
+                                                     'sugars_value': '03',
+                                                     'salt_value': '03',
+                                                     'nutrition_grade_fr': 'test nut',
+                                                     'store': 'Carrefour',
+                                                     'Open_food_facts_url': 'google.com',
+                                                     'image_thumb_url': 'google.com/test',
+                                                     },
+                                                    ])
 
 
 # DataBaseTableHandler
@@ -393,6 +413,7 @@ class DataBaseTableHandlerTest(TestCase):
                           'nutrition_grade_fr': 'test nut',
                           'Open_food_facts_url': 'google.com',
                           'image_thumb_url': 'google.com/test',
+                          'store': 'Carrefour',
                           }]
 
         # Load in table
