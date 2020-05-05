@@ -1,10 +1,10 @@
 import requests
 
-from substitute.variable import NUTRITION_SCORE, CATEGORIES_OPEN_FOOD_FACTS, GROCERY_SHOP
+from substitute.variable import NUTRITION_SCORE, FOOD_CATEGORIES, GROCERY_BRAND
 
 
 class OpenFoodFactsAPIHandler:
-    """ Handle the OpenFoodFacts API.
+    """ Handle the OpenFoodFacts (OFF) API.
     """
 
     def __init__(self):
@@ -20,63 +20,61 @@ class OpenFoodFactsAPIHandler:
         Generate an dictionary of substitutes from OFF API.
         """
 
-        for single_cat in CATEGORIES_OPEN_FOOD_FACTS:
-            # Send a request to the API
-            self.fetch_data_from_cat(single_cat)
+        for category in FOOD_CATEGORIES:
+            for grade in NUTRITION_SCORE:
+                for store in GROCERY_BRAND:
+                    # Send a request to the API
+                    self.fetch_data_from_api(category, grade, store)
 
-            # Ensure that all columns are filled
-            self.check_data_integrity(single_cat)
+                    # Ensure that all columns are filled
+                    self.check_data_integrity(category, grade, store)
 
-    def fetch_data_from_cat(self, category):
+    def fetch_data_from_api(self, category_wished, grade_wished, store_wished):
         """
-        Fetch aliments from specific :categories
+        Fetch aliments from specific :category, :grade, :store
         from the API through an HTTP instruction.
-        Specify the nutrition_score wished and the store.
         """
         # Empty list
         self.api_answer.clear()
 
-        # Fetching data from API to list
-        for grade in NUTRITION_SCORE:
-            for store in GROCERY_SHOP:
-                # Generation of the request
-                url = "https://fr.openfoodfacts.org/cgi/search.pl"
-                criteria = {
-                    "action": "process",
+        # Generation of the request
+        url = "https://fr.openfoodfacts.org/cgi/search.pl"
+        criteria = {
+            "action": "process",
 
-                    "tagtype_0": "categories",
-                    "tag_contains_0": "contains",
-                    "tag_0": category,
+            "tagtype_0": "categories",
+            "tag_contains_0": "contains",
+            "tag_0": category_wished,
 
-                    "tagtype_1": "countries",
-                    "tag_contains_1": "contains",
-                    "tag_1": "france",
+            "tagtype_1": "countries",
+            "tag_contains_1": "contains",
+            "tag_1": "france",
 
-                    "tagtype_2": "nutrition_grade_fr",
-                    "tag_contains_2": "contains",
-                    "tag_2": grade,
+            "tagtype_2": "nutrition_grade_fr",
+            "tag_contains_2": "contains",
+            "tag_2": grade_wished,
 
-                    "tagtype_3": "product_name",
-                    "tag_contains_3": "does_not_contain",
-                    "tag_3": " ",
+            "tagtype_3": "product_name",
+            "tag_contains_3": "does_not_contain",
+            "tag_3": " ",
 
-                    "tagtype_4": "stores",
-                    "tag_contains_4": "contains",
-                    "tag_4": store,
+            "tagtype_4": "stores",
+            "tag_contains_4": "contains",
+            "tag_4": store_wished,
 
-                    "sort_by": "product_name",
-                    "page_size": 1,
-                    "json": 1
-                    }
-                # Send a request to the API
-                req = requests.get(url, params=criteria)
-                # Fetching data in json file
-                data = req.json()
+            "sort_by": "product_name",
+            "page_size": 1,
+            "json": 1
+            }
+        # Send a request to the API
+        req = requests.get(url, params=criteria)
+        # Fetching data in json file
+        data = req.json()
 
-                # Add data in the larger json file
-                self.api_answer.extend(data['products'])
+        # Add data in the larger json file
+        self.api_answer.extend(data['products'])
 
-    def check_data_integrity(self, category_name):
+    def check_data_integrity(self, category_name, grade_name, store_name):
         """Load the data if the whole details are
         available.
         """
@@ -96,8 +94,8 @@ class OpenFoodFactsAPIHandler:
                     columns_needed["saturated-fat_value"] = prod["nutriments"]["saturated-fat_value"]
                     columns_needed["sugars_value"] = prod["nutriments"]["sugars_value"]
                     columns_needed["salt_value"] = prod["nutriments"]["salt_value"]
-                    columns_needed["nutrition_grade_fr"] = prod["nutrition_grade_fr"]
-                    columns_needed["store"] = prod["stores"]
+                    columns_needed["nutrition_grade_fr"] = grade_name
+                    columns_needed["store"] = store_name
                     columns_needed["Open_food_facts_url"] = prod["url"]
                     columns_needed["image_thumb_url"] = prod["image_thumb_url"]
 
