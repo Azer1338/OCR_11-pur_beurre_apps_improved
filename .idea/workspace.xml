@@ -19,10 +19,9 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="5bc1195c-ddc4-4f1c-9dfd-88ed19d1bf1e" name="Default Changelist" comment="install .env lib">
+    <list default="true" id="5bc1195c-ddc4-4f1c-9dfd-88ed19d1bf1e" name="Default Changelist" comment="open_food_facts_handler.py functions name and variables in variable.py files reviewed.">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/substitute/open_food_facts_handler.py" beforeDir="false" afterPath="$PROJECT_DIR$/substitute/open_food_facts_handler.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/substitute/variable.py" beforeDir="false" afterPath="$PROJECT_DIR$/substitute/variable.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/substitute/tests.py" beforeDir="false" afterPath="$PROJECT_DIR$/substitute/tests.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -192,7 +191,14 @@
       <option name="project" value="LOCAL" />
       <updated>1588508207657</updated>
     </task>
-    <option name="localTasksCounter" value="21" />
+    <task id="LOCAL-00021" summary="open_food_facts_handler.py functions name and variables in variable.py files reviewed.">
+      <created>1588666385847</created>
+      <option name="number" value="00021" />
+      <option name="presentableId" value="LOCAL-00021" />
+      <option name="project" value="LOCAL" />
+      <updated>1588666385847</updated>
+    </task>
+    <option name="localTasksCounter" value="22" />
     <servers />
   </component>
   <component name="UnknownFeatures">
@@ -229,13 +235,18 @@
     <MESSAGE value="background img fix" />
     <MESSAGE value="fix the save button function" />
     <MESSAGE value="install .env lib" />
-    <option name="LAST_COMMIT_MESSAGE" value="install .env lib" />
+    <MESSAGE value="open_food_facts_handler.py functions name and variables in variable.py files reviewed." />
+    <option name="LAST_COMMIT_MESSAGE" value="open_food_facts_handler.py functions name and variables in variable.py files reviewed." />
   </component>
   <component name="WindowStateProjectService">
     <state x="532" y="98" width="912" height="909" key="CommitChangelistDialog2" timestamp="1587895284504">
       <screen x="67" y="27" width="1853" height="1053" />
     </state>
     <state x="532" y="98" width="912" height="909" key="CommitChangelistDialog2/67.27.1853.1053/1920.0.1280.1024@67.27.1853.1053" timestamp="1587895284504" />
+    <state x="776" y="310" width="424" height="484" key="FileChooserDialogImpl" timestamp="1588666912435">
+      <screen x="67" y="27" width="1853" height="1053" />
+    </state>
+    <state x="776" y="310" width="424" height="484" key="FileChooserDialogImpl/67.27.1853.1053/1920.0.1280.1024@67.27.1853.1053" timestamp="1588666912435" />
     <state x="588" y="288" width="800" height="528" key="Vcs.Push.Dialog.v2" timestamp="1588508585361">
       <screen x="67" y="27" width="1853" height="1053" />
     </state>
