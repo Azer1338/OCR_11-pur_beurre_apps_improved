@@ -121,7 +121,7 @@
 
     {% if user.is_authenticated %}
     <!-- Google Maps API -->
-    <script async defer  src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCAC55FlIN8RRxdEkNvVSmzMQslpvyYXnM&callback=initMap"></script>
+    <script async defer  src="https://maps.googleapis.com/maps/api/js?key={{ api_key }}&callback=initMap"></script>
 
     <!-- Custom Javascript -->
     <script type="text/javascript" src="{% static 'main/js/custom.js' %}"> </script>

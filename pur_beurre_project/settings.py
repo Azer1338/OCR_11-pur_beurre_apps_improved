@@ -14,6 +14,11 @@ import os
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 import dj_database_url
+import environs
+
+# Set up Environs lib
+env = environs.Env()
+env.read_env()
 
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
@@ -22,9 +27,11 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 # See https://docs.djangoproject.com/en/2.2/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = os.environ.get('SECRET_KEY', 'bn)%cc*v0#1c^0_l646^f-ci9p^zb7cd-@1w7uof68(t7f(5mw')
+SECRET_KEY = os.environ.get('SECRET_KEY', env.str("SECRET_KEY"))
+API_GOOGLE_KEY = env.str('YOUR_GOOGLE_KEY_HERE')
 
 # SECURITY WARNING: don't run with debug turned on in production!
+ENV = env.str("ENV")
 if os.environ.get('ENV') == 'PRODUCTION':
     DEBUG = False
 else:
@@ -94,10 +101,10 @@ DATABASES = {
         # on utilise l'adaptateur postgresql
         'ENGINE': 'django.db.backends.postgresql',
         # le nom de notre base de donnees creee precedemment
-        'NAME': 'pur_beurre_db_apps',
+        'NAME': env.str('YOUR_DATABASE_NAME'),
         # attention : remplacez par votre nom d'utilisateur
-        'USER': 'azer',
-        'PASSWORD': 'azerazer',
+        'USER': env.str('YOUR_USER_DB'),
+        'PASSWORD': env.str('YOUR_PASSWORD_DB'),
         'HOST': '',
         'PORT': '5432',
     }

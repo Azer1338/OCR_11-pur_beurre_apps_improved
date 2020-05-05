@@ -1,11 +1,8 @@
-import json
-
 from django.contrib import messages
 from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 from django.shortcuts import render, redirect
-from django.utils.html import escapejs
 
-from accounts.models import PurBeurreUser
+from pur_beurre_project.settings import API_GOOGLE_KEY
 from .models import Aliment, UserLinkToAlimentsTable
 
 
@@ -88,6 +85,7 @@ def detail_view(request, aliment_code):
     # Create a dictionary to feed the HTML page
     context = {
         'aliment': aliment,
+        'api_key': API_GOOGLE_KEY,
     }
     # Add user'information to the feed
     if request.user.is_authenticated:
