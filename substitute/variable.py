@@ -2,6 +2,11 @@
 # Selection of categories from Open Food Fact
 FOOD_CATEGORIES = ["Sirop",
                    "Tarte",
+                   "Biscuits",
+                   "Soupe",
+                   "Salade",
+                   "Entremets",
+                   "Tourte"
                    ]
 
 # List of score to load in database
