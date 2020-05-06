@@ -17,7 +17,7 @@ class AccountPageTestCase(TestCase):
                                                       first_name="claude",
                                                       name="francois",
                                                       password="Chanson",
-                                                      city="Lyon"
+                                                      address="Lyon"
                                                       )
         test_user.save()
 
@@ -88,7 +88,7 @@ class LogoutPageTestCase(TestCase):
                                                       first_name="claude",
                                                       name="francois",
                                                       password="Chanson",
-                                                      city="Vienne"
+                                                      address="Vienne"
                                                       )
         test_user.save()
 
@@ -115,12 +115,12 @@ class LogoutPageTestCase(TestCase):
 class MyUserTest(TestCase):
 
     # Models
-    def test_create_myUser(self, email="bobo@genoise.mousse", first_name="bob", name="o", city="Vienne"):
+    def test_create_myUser(self, email="bobo@genoise.mousse", first_name="bob", name="o", address="Vienne"):
         return PurBeurreUser.objects.create_user(email=email,
                                                  first_name=first_name,
                                                  name=name,
                                                  password=None,
-                                                 city=city)
+                                                 address=address)
 
     def test_myUser_creation(self):
         u = self.test_create_myUser()
