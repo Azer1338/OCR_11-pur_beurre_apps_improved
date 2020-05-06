@@ -93,6 +93,10 @@ img.character{
     height: 10em;
 }
 
+.checkbox{
+    display:inline-block;
+}
+
 .btn-amber{
     background-color: #DE9440;
     color: white;

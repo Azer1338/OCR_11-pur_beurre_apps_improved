@@ -97,7 +97,7 @@
         <div class="row justify-content-center">
             <div class="col-lg-4 text-center">
                 {% if substitutes.has_previous %}
-                <a href="?userSearch={{ user_request }}&page={{ substitutes.previous_page_number }}">
+                <a href="?{{check_boxes_status}}userSearch={{ user_request }}&page={{ substitutes.previous_page_number }}">
                     Précédent
                 </a>
                 {% endif %}
@@ -105,7 +105,7 @@
             </div>
             <div class="col-lg-4 text-center">
                 {% if substitutes.has_next %}
-                <a href="?userSearch={{ user_request }}&page={{ substitutes.next_page_number }}">
+                <a href="?{{check_boxes_status}}userSearch={{ user_request }}&page={{ substitutes.next_page_number }}">
                     Suivant
                 </a>
                 {% endif %}

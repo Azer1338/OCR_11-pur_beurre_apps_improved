@@ -19,6 +19,25 @@
 
                 <!-- Search field -->
                 <form action="{% url 'substitute:search' %}" method="get" accept-charset="utf-8" class="form">
+                    <!-- Check boxes -->
+                    <h5 class="checkbox">Nutriscore souhaités:</h5>
+                    <h5 class="checkbox">
+                        <input type="checkbox" checked="checked" name="nutriscore_a">a
+                    </h5>
+                    <h5 class="checkbox">
+                        <input type="checkbox" checked="checked"name="nutriscore_b">b
+                    </h5>
+                    <h5 class="checkbox">
+                        <input type="checkbox" checked="checked"name="nutriscore_c">c
+                    </h5>
+                    <h5 class="checkbox">
+                        <input type="checkbox" checked="checked"name="nutriscore_d">d
+                    </h5>
+                    <h5 class="checkbox">
+                        <input type="checkbox" checked="checked"name="nutriscore_e">e
+                    </h5>
+
+                    <!-- Search bar -->
                     <input class="form-control userSearch" type="search" name="userSearch" placeholder="Produit" id="UserRequest">
                     <button class="btn btn-amber btn-outline-warning btn-rounded btn-sm ml-3">Chercher</button>
                 </form>
