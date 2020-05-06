@@ -36,7 +36,7 @@ def search_view(request):
     else:
         # No query send
         message = "Vous n'avez pas spécifié votre recherche. Voici notre liste."
-        aliment_list = Aliment.objects.all().order_by('name')
+        aliment_list = Aliment.objects.all().order_by('nutrition_score')
 
     # Slice page
     paginator = Paginator(aliment_list, 6)
