@@ -36,8 +36,15 @@ def search_view(request):
             nutriscore_wished_list.append(values)
             # Ad user'choices in the context
             check_box_choices = check_box_choices + key + "=on&"
-
-    print(check_box_choices)
+    # If no checkboxes checked, all checkboxes are checked
+    if not nutriscore_wished_list:
+        print("Any checkboxes are checked")
+        nutriscore_wished_list.extend(['a',
+                                       'b',
+                                       'c',
+                                       'd',
+                                       'e'])
+        check_box_choices = 'nutriscore_a=on&nutriscore_b=on&nutriscore_c=on&nutriscore_d=on&nutriscore_e=on&'
 
     # Ensure that the query is filled
     if query:
