@@ -20,12 +20,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="5bc1195c-ddc4-4f1c-9dfd-88ed19d1bf1e" name="Default Changelist" comment="changes the varible name from &quot;city&quot; to &quot;address&quot;">
-      <change afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/main/static/main/css/custom.css" beforeDir="false" afterPath="$PROJECT_DIR$/main/static/main/css/custom.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/main/templates/main/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/main/templates/main/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/substitute/templates/substitute/search.html" beforeDir="false" afterPath="$PROJECT_DIR$/substitute/templates/substitute/search.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/substitute/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/substitute/views.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
