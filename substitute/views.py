@@ -38,7 +38,6 @@ def search_view(request):
             check_box_choices = check_box_choices + key + "=on&"
     # If no checkboxes checked, all checkboxes are checked
     if not nutriscore_wished_list:
-        print("Any checkboxes are checked")
         nutriscore_wished_list.extend(['a',
                                        'b',
                                        'c',
@@ -72,7 +71,6 @@ def search_view(request):
 
     # Slice page
     paginator = Paginator(aliment_list, 6)
-    print(paginator.num_pages)
     # Get the current page
     page_number = request.GET.get('page')
 
@@ -88,7 +86,6 @@ def search_view(request):
 
         'paginate': True,
     }
-    print(context)
 
     return render(request, 'substitute/search.html', context)
 
