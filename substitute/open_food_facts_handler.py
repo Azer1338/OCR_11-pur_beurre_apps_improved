@@ -1,5 +1,6 @@
 import requests
 
+from substitute import variable
 from substitute.variable import NUTRITION_SCORE, FOOD_CATEGORIES, GROCERY_BRAND
 
 
@@ -14,17 +15,21 @@ class OpenFoodFactsAPIHandler:
         self.api_answer = []
         self.substitutes_list = []
         self.filter_status = None
+        self.criteria = Criteria()
 
     def generate_substitutes_dict(self):
         """
         Generate an dictionary of substitutes from OFF API.
         """
 
-        for category in FOOD_CATEGORIES:
-            for grade in NUTRITION_SCORE:
-                for store in GROCERY_BRAND:
+        # Initialise
+        self.api_answer.clear()
+
+        for category in self.criteria.get_categories():
+            for grade in self.criteria.get_nutriscore():
+                for store in self.criteria.get_grocery_brand():
                     # Send a request to the API
-                    self.fetch_data_from_api(category, grade, store)
+                    self.api_answer.extend(self.fetch_data_from_api(category, grade, store))
 
                     # Ensure that all columns are filled
                     self.check_data_integrity(category, grade, store)
@@ -34,8 +39,6 @@ class OpenFoodFactsAPIHandler:
         Fetch aliments from specific :category, :grade, :store
         from the API through an HTTP instruction.
         """
-        # Empty list
-        self.api_answer.clear()
 
         # Generation of the request
         url = "https://fr.openfoodfacts.org/cgi/search.pl"
@@ -72,7 +75,9 @@ class OpenFoodFactsAPIHandler:
         data = req.json()
 
         # Add data in the larger json file
-        self.api_answer.extend(data['products'])
+        #self.api_answer.extend(data['products'])
+
+        return data['products']
 
     def check_data_integrity(self, category_name, grade_name, store_name):
         """Load the data if the whole details are
@@ -105,3 +110,15 @@ class OpenFoodFactsAPIHandler:
                 # Pass if some details are not available
                 except KeyError:
                     pass
+
+
+class Criteria:
+
+    def get_categories(self):
+        return variable.FOOD_CATEGORIES
+
+    def get_nutriscore(self):
+        return variable.NUTRITION_SCORE
+
+    def get_grocery_brand(self):
+        return variable.GROCERY_BRAND

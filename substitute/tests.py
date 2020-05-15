@@ -1,19 +1,14 @@
-from unittest import mock
-from unittest.mock import MagicMock, patch
-
+from unittest.mock import MagicMock
 from django.test import TestCase
 from django.urls import reverse
+
 from accounts.models import PurBeurreUser
-from . import variable
 from .data_base_handler import DataBaseTableHandler
 from .models import Aliment, UserLinkToAlimentsTable
 from .open_food_facts_handler import OpenFoodFactsAPIHandler
 
 
-# search_view page
-from .variable import FOOD_CATEGORIES
-
-
+# search_view Page
 class SearchPageTestCase(TestCase):
 
     def setUp(self):
@@ -164,7 +159,7 @@ class FavoritePageTestCase(TestCase):
                                                         first_name="claude",
                                                         name="francois",
                                                         password="Chanson",
-                                                        city='Brignoles'
+                                                        address='Brignoles'
                                                         )
         test_user_1.save()
         # User is authenticated
@@ -228,7 +223,7 @@ class SavePageTestCase(TestCase):
                                                         first_name="claude",
                                                         name="francois",
                                                         password="Chanson",
-                                                        city='Toulouse'
+                                                        address='Toulouse'
                                                         )
         test_user_1.save()
         # User is authenticated
@@ -268,7 +263,7 @@ class DeletePageTestCase(TestCase):
                                                         first_name="claude",
                                                         name="francois",
                                                         password="Chanson",
-                                                        city="Grenoble"
+                                                        address="Grenoble"
                                                         )
         test_user_1.save()
         # User is authenticated
@@ -344,27 +339,27 @@ class OpenFoodFactsAPIHandlerTest(TestCase):
 
     def test_open_food_facts_handler_api_mock(self):
         handler = OpenFoodFactsAPIHandler()
+
+        handler.criteria.get_categories = MagicMock(return_value=["Sirop",])
+        handler.criteria.get_nutriscore = MagicMock(return_value=["a",])
+        handler.criteria.get_grocery_brand = MagicMock(return_value=["Franprix",])
+
         # Mock the API call
-        handler.fetch_data_from_api = MagicMock(return_value=0)
-        # Mock variables in variable.py
-        variable.FOOD_CATEGORIES = mock.patch.object(handler.fetch_data_from_api, FOOD_CATEGORIES, return_value=['test cat'])
-        variable.NUTRITION_SCORE = MagicMock(return_value=['test nut'])
-        variable.GROCERY_BRAND = MagicMock(return_value=['Carrefour'])
-        # Mock the API answer
-        handler.api_answer = [{'code': '01',
-                               'product_name': 'test name',
-                               'category_name': 'test cat',
-                               'nutriments': {'energy_value': '03',
-                                              'fat_value': '03',
-                                              'saturated-fat_value': '03',
-                                              'sugars_value': '03',
-                                              'salt_value': '03'},
-                               'nutrition_grade_fr': 'test nut',
-                               'stores': 'Carrefour',
-                               'url': 'google.com',
-                               'image_thumb_url': 'google.com/test',
-                               }
-                              ]
+        handler.fetch_data_from_api = MagicMock(return_value=[{'code': '01',
+                                                               'product_name': 'test name',
+                                                               'category_name': 'Sirop',
+                                                               'nutriments': {'energy_value': '03',
+                                                                              'fat_value': '03',
+                                                                              'saturated-fat_value': '03',
+                                                                              'sugars_value': '03',
+                                                                              'salt_value': '03'},
+                                                               'nutrition_grade_fr': 'a',
+                                                               'stores': 'Franprix',
+                                                               'url': 'google.com',
+                                                               'image_thumb_url': 'google.com/test',
+                                                               }]
+                                                )
+
 
         # Keep going on process
         handler.generate_substitutes_dict()
@@ -376,21 +371,8 @@ class OpenFoodFactsAPIHandlerTest(TestCase):
                                                      'saturated-fat_value': '03',
                                                      'sugars_value': '03',
                                                      'salt_value': '03',
-                                                     'nutrition_grade_fr': 'test nut',
-                                                     'store': 'Carrefour',
-                                                     'Open_food_facts_url': 'google.com',
-                                                     'image_thumb_url': 'google.com/test',
-                                                     },
-                                                    {'code': '01',
-                                                     'product_name': 'test name',
-                                                     'categories': 'Tarte',
-                                                     'energy_value': '03',
-                                                     'fat_value': '03',
-                                                     'saturated-fat_value': '03',
-                                                     'sugars_value': '03',
-                                                     'salt_value': '03',
-                                                     'nutrition_grade_fr': 'test nut',
-                                                     'store': 'Carrefour',
+                                                     'nutrition_grade_fr': 'a',
+                                                     'store': 'Franprix',
                                                      'Open_food_facts_url': 'google.com',
                                                      'image_thumb_url': 'google.com/test',
                                                      },
@@ -436,6 +418,3 @@ class DataBaseTableHandlerTest(TestCase):
 
         self.assertEqual(handler.message, "Table loaded")
         self.assertEqual(name, 'test name')
-
-
-

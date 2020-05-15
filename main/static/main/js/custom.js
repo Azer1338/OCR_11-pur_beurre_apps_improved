@@ -26,7 +26,7 @@ function calculateAndDisplayRoute(directionService,directionDisplay){
     directionService.route({
         // Variables are picked up from the HTML page js script
         origin : departureCity + ", France",
-        destination: groceryBrandName + departureCity + ", France",
+        destination: groceryBrandName + ", France",
         travelMode:'DRIVING',
         unitSystem: google.maps.UnitSystem.METRIC,
     }, function(response, status){

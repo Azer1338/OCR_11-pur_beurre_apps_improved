@@ -10,13 +10,11 @@ FOOD_CATEGORIES = ["Sirop",
                    ]
 
 # List of score to load in database
-NUTRITION_SCORE = ["a", "b", "c", "d", "e"]
+NUTRITION_SCORE = ["a",]
 
 # List of grocery shop to load in database
 GROCERY_BRAND = ["Franprix",
-                 "Carrefour",
-                 "Monoprix",
-                 "Leclerc",
+
                  ]
 
 # Limit of the menu option
