@@ -91,9 +91,7 @@
                 <!-- Variable -->
                 <script>
                     var departureCity = '{{ user_city }}';
-                    console.log(departureCity);
                     var groceryBrandName = '{{ aliment.store }}';
-                    console.log(groceryBrandName);
                 </script>
                 {% endif %}
 
@@ -121,7 +119,7 @@
 
     {% if user.is_authenticated %}
     <!-- Google Maps API -->
-    <script async defer  src="https://maps.googleapis.com/maps/api/js?key={{ api_key }}&callback=initMap"></script>
+    <script async defer src="https://maps.googleapis.com/maps/api/js?key={{ api_key }}&libraries=places&callback=initMap"></script>
 
     <!-- Custom Javascript -->
     <script type="text/javascript" src="{% static 'main/js/custom.js' %}"> </script>
