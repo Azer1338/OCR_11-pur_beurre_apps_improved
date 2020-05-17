@@ -4,6 +4,7 @@ FOOD_CATEGORIES = ["Sirop",
                    "Tarte",
                    "Soupe",
                    "Salade",
+                   "Tourte",
                    "Fruits"
                    ]
 
@@ -19,6 +20,8 @@ NUTRITION_SCORE = ["a",
 GROCERY_BRAND = ["Franprix",
                  "Lidl",
                  "Auchan",
+                 "Aldi",
+                 "Vival"
                  ]
 
 # Limit of the menu option

@@ -14,6 +14,7 @@ class OpenFoodFactsAPIHandler:
         # Empty the data storage
         self.api_answer = []
         self.substitutes_list = []
+        self.code_list = []
         self.filter_status = None
         self.criteria = Criteria()
 
@@ -24,15 +25,16 @@ class OpenFoodFactsAPIHandler:
 
         # Initialise
         self.api_answer.clear()
+        self.code_list.clear()
 
-        for category in self.criteria.get_categories():
-            for grade in self.criteria.get_nutriscore():
-                for store in self.criteria.get_grocery_brand():
+        for store in self.criteria.get_grocery_brand():
+            for category in self.criteria.get_categories():
+                for grade in self.criteria.get_nutriscore():
                     # Send a request to the API
                     self.api_answer.extend(self.fetch_data_from_api(category, grade, store))
 
-                    # Ensure that all columns are filled
-                    self.check_data_integrity(category, grade, store)
+            # Ensure that all columns are filled
+            self.check_data_integrity(category, grade, store)
 
     def fetch_data_from_api(self, category_wished, grade_wished, store_wished):
         """
@@ -90,26 +92,32 @@ class OpenFoodFactsAPIHandler:
         for prod in self.api_answer:
             # Make sure that all fields are available
             if prod["product_name"]:
-                try:
-                    columns_needed["code"] = (prod["code"])
-                    columns_needed["product_name"] = prod["product_name"]
-                    columns_needed["categories"] = category_name
-                    columns_needed["energy_value"] = prod["nutriments"]["energy_value"]
-                    columns_needed["fat_value"] = prod["nutriments"]["fat_value"]
-                    columns_needed["saturated-fat_value"] = prod["nutriments"]["saturated-fat_value"]
-                    columns_needed["sugars_value"] = prod["nutriments"]["sugars_value"]
-                    columns_needed["salt_value"] = prod["nutriments"]["salt_value"]
-                    columns_needed["nutrition_grade_fr"] = grade_name
-                    columns_needed["store"] = store_name
-                    columns_needed["Open_food_facts_url"] = prod["url"]
-                    columns_needed["image_thumb_url"] = prod["image_thumb_url"]
+                if prod["code"] not in self.code_list:
+                    try:
+                        columns_needed["code"] = prod["code"]
+                        columns_needed["product_name"] = prod["product_name"]
+                        columns_needed["categories"] = category_name
+                        columns_needed["energy_value"] = prod["nutriments"]["energy_value"]
+                        columns_needed["fat_value"] = prod["nutriments"]["fat_value"]
+                        columns_needed["saturated-fat_value"] = prod["nutriments"]["saturated-fat_value"]
+                        columns_needed["sugars_value"] = prod["nutriments"]["sugars_value"]
+                        columns_needed["salt_value"] = prod["nutriments"]["salt_value"]
+                        columns_needed["nutrition_grade_fr"] = grade_name
+                        columns_needed["store"] = store_name
+                        columns_needed["Open_food_facts_url"] = prod["url"]
+                        columns_needed["image_thumb_url"] = prod["image_thumb_url"]
 
-                    # Add dictionary in the list
-                    self.substitutes_list.append(dict(columns_needed))
+                        # Add dictionary in the list
+                        self.substitutes_list.append(dict(columns_needed))
 
-                # Pass if some details are not available
-                except KeyError:
-                    pass
+                        # Add in the "already recorded" code list
+                        self.code_list.append(prod["code"])
+
+                    # Pass if some details are not available
+                    except KeyError:
+                        pass
+                else:
+                    print(prod["product_name"] + "is already in the list.")
 
 
 class Criteria:
