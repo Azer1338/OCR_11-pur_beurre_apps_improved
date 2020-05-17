@@ -33,8 +33,8 @@ class OpenFoodFactsAPIHandler:
                     # Send a request to the API
                     self.api_answer.extend(self.fetch_data_from_api(category, grade, store))
 
-            # Ensure that all columns are filled
-            self.check_data_integrity(category, grade, store)
+                    # Ensure that all columns are filled
+                    self.check_data_integrity(category, grade, store)
 
     def fetch_data_from_api(self, category_wished, grade_wished, store_wished):
         """
