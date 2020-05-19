@@ -34,7 +34,7 @@ def search_view(request):
     for key, values in nutriscore_dict.items():
         if request.GET.get(key):
             nutriscore_wished_list.append(values)
-            # Ad user'choices in the context
+            # Add user'choices in the context
             check_box_choices = check_box_choices + key + "=on&"
     # If no checkboxes checked, all checkboxes are checked
     if not nutriscore_wished_list:

@@ -83,6 +83,17 @@ class SearchPageTestCase(TestCase):
                          "Misère de misère, nous n'avons trouvé aucun résultat !"
                          )
 
+    def test_search_page_return_list_with_filter(self):
+        response = self.client.get(reverse('substitute:search'), {'userSearch': 'patate', 'nutriscore_a': 'on'})
+        # Check the return message
+        self.assertEqual(response.status_code, 200)
+        self.assertEqual(str(response.context['check_boxes_status']),
+                         "nutriscore_a=on&"
+                         )
+        self.assertNotEqual(str(response.context['check_boxes_status']),
+                         'nutriscore_b=on&'
+                         )
+
 
 # detail_view Page
 class DetailPageTestCase(TestCase):
