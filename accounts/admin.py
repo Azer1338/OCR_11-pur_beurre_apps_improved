@@ -10,7 +10,8 @@ class PurBeurreUserCreationForm(forms.ModelForm):
     """A form for creating new users. Includes all the required
     fields, plus a repeated password."""
     password1 = forms.CharField(label='Password', widget=forms.PasswordInput)
-    password2 = forms.CharField(label='Password confirmation', widget=forms.PasswordInput)
+    password2 = forms.CharField(label='Password confirmation',
+                                widget=forms.PasswordInput)
 
     class Meta:
         model = PurBeurreUser
@@ -42,7 +43,14 @@ class MyUserChangeForm(forms.ModelForm):
 
     class Meta:
         model = PurBeurreUser
-        fields = ('email', 'first_name', 'name', 'address', 'password', 'is_active', 'is_admin')
+        fields = ('email',
+                  'first_name',
+                  'name',
+                  'address',
+                  'password',
+                  'is_active',
+                  'is_admin'
+                  )
 
     def clean_password(self):
         # Regardless of what the user provides, return the initial value.

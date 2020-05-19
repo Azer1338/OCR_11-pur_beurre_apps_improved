@@ -5,7 +5,8 @@ from django.contrib.auth.models import BaseUserManager, AbstractBaseUser
 class PurBeurreUserManager(BaseUserManager):
     def create_user(self, email, first_name, name, address, password=None):
         """
-        Creates and saves a User with the given email, first name, name and password.
+        Creates and saves a User with the given email, first name,
+        name and password.
         """
         if not email:
             raise ValueError('Users must have an email address')

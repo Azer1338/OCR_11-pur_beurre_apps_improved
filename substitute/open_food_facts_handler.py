@@ -1,7 +1,6 @@
 import requests
 
 from substitute import variable
-from substitute.variable import NUTRITION_SCORE, FOOD_CATEGORIES, GROCERY_BRAND
 
 
 class OpenFoodFactsAPIHandler:
@@ -75,9 +74,6 @@ class OpenFoodFactsAPIHandler:
         req = requests.get(url, params=criteria)
         # Fetching data in json file
         data = req.json()
-
-        # Add data in the larger json file
-        #self.api_answer.extend(data['products'])
 
         return data['products']
 

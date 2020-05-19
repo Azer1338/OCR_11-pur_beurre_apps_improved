@@ -43,7 +43,8 @@ def search_view(request):
                                        'c',
                                        'd',
                                        'e'])
-        check_box_choices = 'nutriscore_a=on&nutriscore_b=on&nutriscore_c=on&nutriscore_d=on&nutriscore_e=on&'
+        check_box_choices = \
+            'nutriscore_a=on&nutriscore_b=on&nutriscore_c=on&nutriscore_d=on&nutriscore_e=on&'
 
     # Ensure that the query is filled
     if query:
@@ -58,15 +59,20 @@ def search_view(request):
             message = "Vous pouvez remplacer cet aliment par:"
             # Collect a list of aliment with the same categories
             for elt in nutriscore_wished_list:
-                search = Aliment.objects.filter(category__icontains=aliment_name[0].category,
-                                                nutrition_score__icontains=elt).order_by('nutrition_score')
+                search = Aliment.objects\
+                    .filter(category__icontains=aliment_name[0].category,
+                            nutrition_score__icontains=elt)\
+                    .order_by('nutrition_score')
                 aliment_list.extend(search)
 
     else:
         # No query send
-        message = "Vous n'avez pas spécifié votre recherche. Voici notre liste."
+        message = \
+            "Vous n'avez pas spécifié votre recherche. Voici notre liste."
         for elt in nutriscore_wished_list:
-            search = Aliment.objects.filter(nutrition_score__icontains=elt).order_by('nutrition_score')
+            search = Aliment.objects\
+                .filter(nutrition_score__icontains=elt)\
+                .order_by('nutrition_score')
             aliment_list.extend(search)
 
     # Slice page
@@ -128,11 +134,13 @@ def favorites_view(request):
     # Ensure that an user is authentified
     if request.user.is_authenticated:
         # Gather a list from database
-        favorites_id_list = UserLinkToAlimentsTable.objects.filter(user_id=request.user)
+        favorites_id_list = UserLinkToAlimentsTable\
+            .objects.filter(user_id=request.user)
         # Check if we find some elements
         if not favorites_id_list.exists():
             # List is empty
-            message = "Misère de misère, vous n'avez encore pas enregistrer de favoris !"
+            message = \
+                "Misère de misère, vous n'avez encore pas enregistrer de favoris !"
             # Empty list
             favorite_list = []
         else:
@@ -141,7 +149,8 @@ def favorites_view(request):
             # Collect the aliments from the list
             favorite_list = []
             for elt in favorites_id_list:
-                adrien = Aliment.objects.filter(id=elt.aliment_id).distinct()
+                adrien = Aliment.objects\
+                    .filter(id=elt.aliment_id).distinct()
                 favorite_list.extend(adrien)
 
     else:
@@ -183,7 +192,8 @@ def save_view(request, aliment_id):
     """
 
     # Add the favorite aliment in the table
-    UserLinkToAlimentsTable.objects.create(user_id=request.user, aliment_id=aliment_id)
+    UserLinkToAlimentsTable.objects\
+        .create(user_id=request.user, aliment_id=aliment_id)
 
     messages.success(request, 'Aliment ajouté!')
 
@@ -199,7 +209,8 @@ def delete_view(request, aliment_id):
     """
 
     # Add the favorite aliment in the table
-    UserLinkToAlimentsTable.objects.filter(user_id=request.user, aliment_id=aliment_id).delete()
+    UserLinkToAlimentsTable.objects\
+        .filter(user_id=request.user, aliment_id=aliment_id).delete()
 
     messages.success(request, 'Aliment retiré!')
 

@@ -14,4 +14,5 @@ class Command(BaseCommand):
 
         # Load data in the database
         aliment_table_handler = DataBaseTableHandler(Aliment)
-        aliment_table_handler.load_json_file_in_table(api_handler.substitutes_list)
+        aliment_table_handler.\
+            load_json_file_in_table(api_handler.substitutes_list)

@@ -25,19 +25,20 @@ class DataBaseTableHandler:
 
         # Fill details and load it
         for elt in json_file:
-            self.table_impacted.objects.create(code=elt['code'],
-                                               name=elt['product_name'],
-                                               category=elt['categories'],
-                                               energy=elt['energy_value'],
-                                               fat=elt['fat_value'],
-                                               fat_saturated=elt['saturated-fat_value'],
-                                               sugar=elt['sugars_value'],
-                                               salt=elt['salt_value'],
-                                               nutrition_score=elt['nutrition_grade_fr'],
-                                               store=elt['store'],
-                                               url_link=elt['Open_food_facts_url'],
-                                               picture_link=elt['image_thumb_url'],
-                                               )
+            self.table_impacted.objects.\
+                create(code=elt['code'],
+                       name=elt['product_name'],
+                       category=elt['categories'],
+                       energy=elt['energy_value'],
+                       fat=elt['fat_value'],
+                       fat_saturated=elt['saturated-fat_value'],
+                       sugar=elt['sugars_value'],
+                       salt=elt['salt_value'],
+                       nutrition_score=elt['nutrition_grade_fr'],
+                       store=elt['store'],
+                       url_link=elt['Open_food_facts_url'],
+                       picture_link=elt['image_thumb_url'],
+                       )
 
         # Number of elements loaded
         self.list_loaded_length = len(json_file)

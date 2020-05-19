@@ -16,8 +16,7 @@ class AccountPageTestCase(TestCase):
         test_user = PurBeurreUser.objects.create_user(email="Franco13@.com",
                                                       first_name="claude",
                                                       name="francois",
-                                                      password="Chanson",
-                                                      address="Lyon"
+                                                      password="Chanson"
                                                       )
         test_user.save()
 
@@ -87,8 +86,7 @@ class LogoutPageTestCase(TestCase):
         test_user = PurBeurreUser.objects.create_user(email="Franco13@.com",
                                                       first_name="claude",
                                                       name="francois",
-                                                      password="Chanson",
-                                                      address="Vienne"
+                                                      password="Chanson"
                                                       )
         test_user.save()
 
@@ -115,15 +113,16 @@ class LogoutPageTestCase(TestCase):
 class MyUserTest(TestCase):
 
     # Models
-    def test_create_myUser(self, email="bobo@genoise.mousse", first_name="bob", name="o", address="Vienne"):
+    def test_create_myUser(self, email="bobo@genoise.mousse",
+                           first_name="bob", name="o"):
         return PurBeurreUser.objects.create_user(email=email,
                                                  first_name=first_name,
                                                  name=name,
-                                                 password=None,
-                                                 address=address)
+                                                 password=None
+                                                 )
 
     def test_myUser_creation(self):
-        u = self.test_create_myUser()
+        u = self.create_myUser()
         self.assertTrue(isinstance(u, PurBeurreUser))
 
 
