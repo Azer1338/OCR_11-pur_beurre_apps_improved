@@ -1,14 +1,14 @@
 from unittest.mock import MagicMock
-
 from django.test import TestCase
 from django.urls import reverse
+
 from accounts.models import PurBeurreUser
 from .data_base_handler import DataBaseTableHandler
 from .models import Aliment, UserLinkToAlimentsTable
 from .open_food_facts_handler import OpenFoodFactsAPIHandler
 
 
-# search_view page
+# search_view Page
 class SearchPageTestCase(TestCase):
 
     def setUp(self):
@@ -49,8 +49,7 @@ class SearchPageTestCase(TestCase):
         aliment_2.save()
 
     def test_search_page_return_message_on_emptied_query(self):
-        response = self.client.get(reverse('substitute:search'),
-                                   {'userSearch': ''})
+        response = self.client.get(reverse('substitute:search'), {'userSearch': ''})
         # Check the return message
         self.assertEqual(response.status_code, 200)
         self.assertEqual(str(response.context['message']),
@@ -58,8 +57,7 @@ class SearchPageTestCase(TestCase):
                          )
 
     def test_search_page_return_message_on_known_query(self):
-        response = self.client.get(reverse('substitute:search'),
-                                   {'userSearch': 'patate'})
+        response = self.client.get(reverse('substitute:search'), {'userSearch': 'patate'})
         # Check the return message
         self.assertEqual(response.status_code, 200)
         self.assertNotEqual(str(response.context['message']),
@@ -67,8 +65,7 @@ class SearchPageTestCase(TestCase):
                             )
 
     def test_search_page_return_list_against_known_product(self):
-        response = self.client.get(reverse('substitute:search'),
-                                   {'userSearch': 'patate'})
+        response = self.client.get(reverse('substitute:search'), {'userSearch': 'patate'})
         # Check the existence of the second aliment in the list
         self.assertEqual(response.status_code, 200)
         self.assertEqual(response.context['substitutes'].object_list[1].name,
@@ -79,12 +76,22 @@ class SearchPageTestCase(TestCase):
                             )
 
     def test_search_page_return_list_against_unknown_product(self):
-        response = self.client.get(reverse('substitute:search'),
-                                   {'userSearch': 'chocolat'})
+        response = self.client.get(reverse('substitute:search'), {'userSearch': 'chocolat'})
         # Check the return message
         self.assertEqual(response.status_code, 200)
         self.assertEqual(str(response.context['message']),
                          "Misère de misère, nous n'avons trouvé aucun résultat !"
+                         )
+
+    def test_search_page_return_list_with_filter(self):
+        response = self.client.get(reverse('substitute:search'), {'userSearch': 'patate', 'nutriscore_a': 'on'})
+        # Check the return message
+        self.assertEqual(response.status_code, 200)
+        self.assertEqual(str(response.context['check_boxes_status']),
+                         "nutriscore_a=on&"
+                         )
+        self.assertNotEqual(str(response.context['check_boxes_status']),
+                         'nutriscore_b=on&'
                          )
 
 
@@ -162,7 +169,8 @@ class FavoritePageTestCase(TestCase):
         test_user_1 = PurBeurreUser.objects.create_user(email="Franco13@.com",
                                                         first_name="claude",
                                                         name="francois",
-                                                        password="Chanson"
+                                                        password="Chanson",
+                                                        address='Brignoles'
                                                         )
         test_user_1.save()
         # User is authenticated
@@ -225,18 +233,17 @@ class SavePageTestCase(TestCase):
         test_user_1 = PurBeurreUser.objects.create_user(email="Franco13@.com",
                                                         first_name="claude",
                                                         name="francois",
-                                                        password="Chanson"
+                                                        password="Chanson",
+                                                        address='Toulouse'
                                                         )
         test_user_1.save()
         # User is authenticated
         self.client.login(username="Franco13@.com", password="Chanson")
 
     def test_save_page_return_302(self):
-        response = self.client.get('/substitute/save/1/',
-                                   HTTP_REFERER='/substitute/favorites/')
+        response = self.client.get('/substitute/save/1/', HTTP_REFERER='/substitute/favorites/')
         # Check the redirection
-        self.assertRedirects(response, '/substitute/favorites/',
-                             status_code=302)
+        self.assertRedirects(response, '/substitute/favorites/', status_code=302)
 
 
 # delete_view page
@@ -266,18 +273,17 @@ class DeletePageTestCase(TestCase):
         test_user_1 = PurBeurreUser.objects.create_user(email="Franco13@.com",
                                                         first_name="claude",
                                                         name="francois",
-                                                        password="Chanson"
+                                                        password="Chanson",
+                                                        address="Grenoble"
                                                         )
         test_user_1.save()
         # User is authenticated
         self.client.login(username="Franco13@.com", password="Chanson")
 
     def test_delete_page_return_302(self):
-        response = self.client.get('/substitute/delete/1/',
-                                   HTTP_REFERER='/substitute/favorites/')
+        response = self.client.get('/substitute/delete/1/', HTTP_REFERER='/substitute/favorites/')
         # Check the redirection
-        self.assertRedirects(response, '/substitute/favorites/',
-                             status_code=302)
+        self.assertRedirects(response, '/substitute/favorites/', status_code=302)
 
 
 # Aliment model
@@ -344,37 +350,44 @@ class OpenFoodFactsAPIHandlerTest(TestCase):
 
     def test_open_food_facts_handler_api_mock(self):
         handler = OpenFoodFactsAPIHandler()
+
+        handler.criteria.get_categories = MagicMock(return_value=["Sirop",])
+        handler.criteria.get_nutriscore = MagicMock(return_value=["a",])
+        handler.criteria.get_grocery_brand = MagicMock(return_value=["Franprix",])
+
         # Mock the API call
-        handler.fetch_data_from_cat = MagicMock(return_value=0)
-        handler.api_answer = [{'code': '01',
-                               'product_name': 'test name',
-                               'category_name': 'test cat',
-                               'nutriments': {'energy_value': '03',
-                                              'fat_value': '03',
-                                              'saturated-fat_value': '03',
-                                              'sugars_value': '03',
-                                              'salt_value': '03'},
-                               'nutrition_grade_fr': 'test nut',
-                               'url': 'google.com',
-                               'image_thumb_url': 'google.com/test',
-                               }]
+        handler.fetch_data_from_api = MagicMock(return_value=[{'code': '01',
+                                                               'product_name': 'test name',
+                                                               'category_name': 'Sirop',
+                                                               'nutriments': {'energy_value': '03',
+                                                                              'fat_value': '03',
+                                                                              'saturated-fat_value': '03',
+                                                                              'sugars_value': '03',
+                                                                              'salt_value': '03'},
+                                                               'nutrition_grade_fr': 'a',
+                                                               'stores': 'Franprix',
+                                                               'url': 'google.com',
+                                                               'image_thumb_url': 'google.com/test',
+                                                               }]
+                                                )
+
 
         # Keep going on process
         handler.generate_substitutes_dict()
-
-        self.assertEqual(handler.substitutes_list,
-                         [{'code': '01',
-                           'product_name': 'test name',
-                           'categories': 'Soda',
-                           'energy_value': '03',
-                           'fat_value': '03',
-                           'saturated-fat_value': '03',
-                           'sugars_value': '03',
-                           'salt_value': '03',
-                           'nutrition_grade_fr': 'test nut',
-                           'Open_food_facts_url': 'google.com',
-                           'image_thumb_url': 'google.com/test',
-                           }])
+        self.assertEqual(handler.substitutes_list, [{'code': '01',
+                                                     'product_name': 'test name',
+                                                     'categories': 'Sirop',
+                                                     'energy_value': '03',
+                                                     'fat_value': '03',
+                                                     'saturated-fat_value': '03',
+                                                     'sugars_value': '03',
+                                                     'salt_value': '03',
+                                                     'nutrition_grade_fr': 'a',
+                                                     'store': 'Franprix',
+                                                     'Open_food_facts_url': 'google.com',
+                                                     'image_thumb_url': 'google.com/test',
+                                                     },
+                                                    ])
 
 
 # DataBaseTableHandler
@@ -402,6 +415,7 @@ class DataBaseTableHandlerTest(TestCase):
                           'nutrition_grade_fr': 'test nut',
                           'Open_food_facts_url': 'google.com',
                           'image_thumb_url': 'google.com/test',
+                          'store': 'Carrefour',
                           }]
 
         # Load in table
