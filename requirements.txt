@@ -6,7 +6,7 @@ coverage==5.0.1
 dj-database-url==0.5.0
 Django==3.0
 django-crispy-forms==1.8.1
-django-debug-toolbar==2.1
+django-debug-toolbar==2.2.1
 django-forms-test==0.1.post1
 environs==7.4.0
 googlemaps==4.2.2
